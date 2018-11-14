@@ -1,26 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import NavBar from "./components/layout/NavBar";
+import DashBoard from "./components/dashboard/Dashboard";
+import ProjectDetails from "./components/projects/ProjectDetails";
+import SignIn from "./components/auth/SignIn";
+import SignUp from "./components/auth/SignUp";
+import CreateProject from "./components/projects/CreateProject";
+import Voice from "./components/dashboard/Voice";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <NavBar />
+          <Switch>
+            <Route exact path="/voice/" component={Voice} />
+            <Route exact path="/mario/" component={DashBoard} />
+            <Route path="/mario/project/:id" component={ProjectDetails} />
+            <Route path="/mario/signin" component={SignIn} />
+            <Route path="/mario/signUp" component={SignUp} />
+            <Route path="/mario/create" component={CreateProject} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
