@@ -17,7 +17,7 @@ const NavBar = props => {
       <nav className="navbar fixed-top navbar-dark bg-dark">
         <div className="container">
           <Link to="/mario/" className="brand-logo navbar-brand">
-            VoiceLearn
+            Voice Learn
           </Link>
           {links}
         </div>
